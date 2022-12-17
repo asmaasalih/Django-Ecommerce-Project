@@ -25,11 +25,7 @@ class Category(models.Model):
     
     #def get_absolute_url(self):
     #    return reverse("store:category_list", args=[ self.slug])
-    
-    def save(self):
-        if not self.slug:
-            self.slug = slugify(self.title())
-        return super().save(*args,**kwargs)    
+       
         
         
 class Product(models.Model):
@@ -46,12 +42,7 @@ class Product(models.Model):
         return self.name
     
     #def get_absolute_url(self):
-    #    return reverse('store:product_detail',args=[ self.slug])  
-    
-    def save(self):
-        if not self.slug:
-            self.slug = slugify(self.name)
-        return super().save(*args,**kwargs)    
+    #    return reverse('store:product_detail',args=[ self.slug])    
     
     
 class Order(models.Model):
