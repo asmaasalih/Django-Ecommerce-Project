@@ -1,0 +1,30 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}
+{% if category %}{{ category.name }}{% else %}Books{% endif %}
+{% endblock %}
+{% block content %}
+<main>
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="pb-3 h5">{{category.name|title}}</div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+
+        {% for product in products %}
+
+        <div class="col col-lg-4">
+            <div class="card" style="width: 20rem;">
+               <img src="{{product.img.url}}" class="card-img-top" alt="...">
+               <div class="card-body">
+                  <h5 class="card-title">{{ product.name}}</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="{{ product.get_absolute_url }}" class="btn btn-primary">book show</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

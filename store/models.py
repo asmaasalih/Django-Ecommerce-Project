@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 # Create your models here.
@@ -23,8 +24,8 @@ class Category(models.Model):
     def __str__(self):
         return self.title
     
-    #def get_absolute_url(self):
-    #    return reverse("store:category_list", args=[ self.slug])
+    def get_absolute_url(self):
+        return reverse("store:category_list", args=[ self.slug])
        
         
         
@@ -41,8 +42,8 @@ class Product(models.Model):
     def __str__(self):
         return self.name
     
-    #def get_absolute_url(self):
-    #    return reverse('store:product_detail',args=[ self.slug])    
+    def get_absolute_url(self):
+        return reverse('store:product_detail',args=[ self.slug])    
     
     
 class Order(models.Model):
